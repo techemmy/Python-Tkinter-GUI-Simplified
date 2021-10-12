@@ -5,8 +5,8 @@ root = tk.Tk()
 
 UP_IMG = tk.PhotoImage(file='arrow-upright.png')
 
-def say_hi():
-	# print(file_menu.entrycget(3, 'label'))
+def say_hi(e=None):
+	print(file_menu.entrycget(3, 'label'))
 	file_submenu.entryconfigure(0, state='disabled')
 
 cont_menu = tk.Menu(root, tearoff=0)
@@ -32,7 +32,8 @@ file_menu.add_cascade(menu=file_submenu, label='Submenu')
 
 
 file_menu.add_command(label='Open', image=UP_IMG, compound='left',
- accelerator='Ctrl+O')
+ accelerator='Ctrl+O', command=say_hi)
+root.bind('<Control-O>', say_hi)
 file_menu.add_separator()
 file_menu.add_command(label='New', command=say_hi)
 
